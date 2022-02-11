@@ -5,11 +5,9 @@ object Choice extends App {
   // # ways to choose m from n
   def choose(n: Int, m: Int): Int =
     if(n < 0 || m < 0) throw new Exception
-    def helper(v: Int, c: Int): Int =
-      if(n == m) 1
-      else if(m == 0) 1
-      else helper(v * (n - c), c-1)
-    helper(0, 0)
+    else if(n == m) 1
+    else if(m == 0) 1
+    else choose(n-1, m-1) + choose(n-1, m)
 
   // Pascal's Triangle
   for (i <- 0 to 10)

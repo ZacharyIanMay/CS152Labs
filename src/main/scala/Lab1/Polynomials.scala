@@ -6,11 +6,11 @@ class PolynomialUtils {
   def roots(p: (Double, Double, Double)): Option[(Double, Double)] =
     val root = p(1)*p(1) - 4*p(0)*p(2)
     val div = 2 * p(0)
-    if (root < 0) return None
+    if (root < 0) None
     else
       val A = (-p(1) + sqrt(root))/div
       val B = (-p(1) - sqrt(root))/div
-      return Some(A, B)
+      Some(A, B)
 
   def deriv(p: (Double, Double, Double)): (Double, Double, Double) =
     var result = (0.0, 0.0, 0.0)
