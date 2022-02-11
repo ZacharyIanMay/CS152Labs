@@ -23,10 +23,22 @@ class Hanoi {
 
   // legally move num rings from fromTower to toTower
   def move(num: Int, fromTower: Int, toTower: Int): Unit =
-    if(towers(fromTower).top == num)
-    println(this.toString())
-
-
+    def find(): Int =
+      var v = 0
+      for(t <- numTowers-1 to 0 by -1)
+        if ((t != fromTower) && (t != toTower)) v = t
+      v
+    if(num == 1) {
+      if (towers(toTower).length != 0 && towers(fromTower).top > towers(toTower).top) throw new Exception
+      towers(toTower).push(towers(fromTower).pop())
+      println(this.toString())
+    }
+    else {
+      val a = find()
+      move(num - 1, fromTower, a)
+      move(1, fromTower, toTower)
+      move(num - 1, a, toTower)
+    }
 }
 
 object Tower extends App {
