@@ -31,6 +31,7 @@ class Hyper extends Base {
 
 class TailHyper extends Base {
 
+  @tailrec
   final def add(n: BigInt, m: BigInt): BigInt =
     if(isZero(m)) n
     else add(inc(n), dec(m))
@@ -40,12 +41,14 @@ class TailHyper extends Base {
     else mul(add(n,n), dec(m))
 
   def exp(n: BigInt): BigInt =
+    @tailrec
     def helper(v: BigInt, c: BigInt): BigInt =
       if(n <= inc(c)) v
       else helper(mul(v,2), inc(c))
     helper(2, 0)
 
   def hyperExp(n: BigInt): BigInt =
+    @tailrec
     def helper(v: BigInt, c:BigInt): BigInt =
       if(n <= c) v
       else helper(exp(v), inc(c))

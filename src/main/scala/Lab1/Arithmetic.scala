@@ -2,7 +2,7 @@ package Lab1
 
 class ArithmeticUtils {
 
-  def sqrt(n: Int) = {
+  def sqrt(n: Int): Option[Int] = {
     if (n < 0) None
     else {
       var result = 0
@@ -13,7 +13,7 @@ class ArithmeticUtils {
     }
   }
 
-  def log(n: Int) = {
+  def log(n: Int): Option[Int] = {
     if (n <= 0) None
     else {
       var result = 1
@@ -26,12 +26,12 @@ class ArithmeticUtils {
     }
   }
 
-  def isPrime(n: Int) = {
+  def isPrime(n: Int): Option[Boolean] = {
     if (n < 0) None
     else if (n < 2) Some(false)
     else {
       var result = true
-      for(i <- 2 until sqrt(n).get if result) result = (n % i != 0)
+      for(i <- 2 until sqrt(n).get if result) result = n % i != 0
       Some(result)
     }
   }
@@ -46,7 +46,7 @@ class ArithmeticUtils {
     }
   }
 
-  def lcm(n: Int, m: Int) = {
+  def lcm(n: Int, m: Int): Option[Int] = {
     if (m < 0 || n < 0) None
     else if (m == 0 || n == 0) Some(0)
     else {
@@ -60,8 +60,7 @@ class ArithmeticUtils {
     }
   }
 
-  def phi(n: Int) = {
-    if (n < 0) None
+  def phi(n: Int): Option[Int] = {
     var result = 0
     for(i <- 1 to n)
       if (gcd(n, i).get == 1) result += 1;

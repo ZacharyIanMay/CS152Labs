@@ -1,7 +1,7 @@
 package lab2
 import scala.annotation.tailrec
 
-object Fibonacci extends App {
+object fibonacci extends App {
 
   // non-tail recursive version
   def fib(n: Int): Int =
@@ -10,6 +10,7 @@ object Fibonacci extends App {
 
   // tail recursive version
   def tailFib(n: Int): Int =
+    @tailrec
     def helper(c: Int, v1: Int, v2: Int): Int =
       if(c >= n) v1 + v2
       else if(c == 1) helper(c+1, 1, 1)
@@ -18,8 +19,8 @@ object Fibonacci extends App {
 
   // the first 11 Fibonaccis
   for(i <- 0 to 10)
-    println(s"fib(${i}) = ${fib(i)}")
-    println(s"tailFib(${i}) = ${tailFib(i)}")
+    println(s"fib($i) = ${fib(i)}")
+    println(s"tailFib($i) = ${tailFib(i)}")
 
 }
 

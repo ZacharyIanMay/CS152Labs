@@ -12,9 +12,9 @@ abstract class Console {
 
   //def run(f: File): Unit = replF(f)
 
-  def run(f: Array[String]): Unit = repl
+  def run(f: Array[String]): Unit = repl()
 
-  def repl: Unit =
+  def repl(): Unit =
     var loop = true
     var command = ""
     while(loop)
@@ -50,7 +50,7 @@ abstract class Console {
 
 class MathConsole extends Console {
 
-  def digits(part: String) = part.matches("\\d+")
+  def digits(part: String): Boolean = part.matches("\\d+")
 
   def execute(cmmd: String): String =
     println(cmmd)

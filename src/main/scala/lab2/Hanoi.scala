@@ -13,7 +13,7 @@ class Hanoi {
   // push ..., 3, 2, 1 onto tower 0
   for(r <- numRings to 1 by -1) towers(0).push(r) // towers = [Stack(1, 2, 3) Stack() Stack()]
 
-  override def toString = {
+  override def toString: String = {
     var result = "["
     for(t <- 0 until numTowers) {
       result += towers(t).toString + " "
@@ -29,7 +29,7 @@ class Hanoi {
         if ((t != fromTower) && (t != toTower)) v = t
       v
     if(num == 1) {
-      if (towers(toTower).length != 0 && towers(fromTower).top > towers(toTower).top) throw new Exception
+      if (towers(toTower).nonEmpty && towers(fromTower).top > towers(toTower).top) throw new Exception
       towers(toTower).push(towers(fromTower).pop())
       println(this.toString())
     }
