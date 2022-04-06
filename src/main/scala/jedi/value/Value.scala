@@ -1,3 +1,3 @@
 package jedi.value
 
-trait Value
+trait Value()

@@ -20,8 +20,8 @@ object numerology extends App {
   // problem 3
 
   // original version
-  def species(n: Int) =
-    if (0 < n) if (n % 2 == 0) 1 else 2
+//  def species(n: Int) =
+//    if (0 < n) if (n % 2 == 0) 1 else 2
 
   // corrected version
   def species2(n: Int): Int =
